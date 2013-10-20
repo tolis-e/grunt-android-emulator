@@ -1,0 +1,37 @@
+{
+    "name": "grunt-android-emulator-example",
+    "description": "Create, Start and Stop Android emulators Example",
+    "title": "Grunt Android Emulator Example",
+    "version": "0.1.0",
+    "homepage": "https://github.com/tolis-e/grunt-android-emulator",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/tolis-e/grunt-android-emulator.git"
+    },
+    "author": {
+        "name": "Tolis Emmanouilidis",
+        "url": "http://github.com/tolis-e/grunt-android-emulator"
+    },
+    "maintainers": {
+        "name": "Tolis Emmanouilidis",
+        "email": "tolisemm@gmail.com"
+    },
+    "licenses": [
+        {
+        "type": "Apache-2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    ],
+    "keywords": [
+        "android",
+        "android emulator",
+        "emulator",
+        "mobile"
+    ],
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.6.4",
+        "grunt-android-emulator": "0.1.0",
+        "shelljs": "~0.2.6"
+    }
+}

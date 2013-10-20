@@ -1,0 +1,18 @@
+language: node_js
+env:
+  matrix:
+    - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18 SYS_IMG=sysimg-18
+before_install:
+  - sudo apt-get update -qq
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
+  - wget http://dl.google.com/android/android-sdk_r22.2.1-linux.tgz
+  - tar -xvzf android-sdk_r22.2.1-linux.tgz
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  - echo y | android update sdk --filter platform-tools,extra-android-support,$ANDROID_SDKS,$SYS_IMG --no-ui --force
+install:
+  - cd example
+before_script:
+  - npm install -g grunt-cli
+  - npm install
+script: grunt
