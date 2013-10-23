@@ -28,9 +28,11 @@
         "emulator",
         "mobile"
     ],
+    "dependencies": {
+        "shelljs": "~0.2.6"
+    },
     "devDependencies": {
         "grunt": "~0.4.1",
-        "grunt-contrib-jshint": "~0.6.4",
-        "shelljs": "~0.2.6"
+        "grunt-contrib-jshint": "~0.6.4"
     }
 }

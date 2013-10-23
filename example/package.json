@@ -31,7 +31,6 @@
     "devDependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-jshint": "~0.6.4",
-        "grunt-android-emulator": "0.1.0",
-        "shelljs": "~0.2.6"
+        "grunt-android-emulator": "0.1.0"
     }
 }
