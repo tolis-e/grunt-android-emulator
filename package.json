@@ -1,6 +1,6 @@
 {
     "name": "grunt-android-emulator",
-    "description": "Create, Start and Stop Android emulators",
+    "description": "Create, Start, Unlock and Stop Android emulators",
     "title": "Grunt Android Emulator",
     "version": "0.1.0",
     "homepage": "https://github.com/tolis-e/grunt-android-emulator",

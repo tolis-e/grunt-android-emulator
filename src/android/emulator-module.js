@@ -159,5 +159,32 @@ module.exports.AndroidEmulatorModule =
                 }
             });
         }
+    },
+    unlock: function (options, callbacks)
+    {
+        if (options)
+        {
+            var unlockEmulatorCmd = ['adb -s emulator-',
+                                        options['-port'],
+                                        ' shell input keyevent 82 && adb -s emulator-',
+                                        options['-port'],
+                                        ' shell input keyevent 4'
+                                    ].join('');
+
+            Logger.info(['AndroidEmulatorModule: unlock: ', unlockEmulatorCmd].join(''));
+
+            var unlockEmulator = shell.exec(unlockEmulatorCmd, function (statusCode, output) {
+                if (statusCode === 0)
+                {
+                    Logger.info('AndroidEmulatorModule: unlock: emulator successfully unlocked');
+                    callbacks.success();
+                }
+                else
+                {
+                    Logger.error('AndroidEmulatorModule: stop: emulator unlock failed');
+                    callbacks.error();
+                }
+            });
+        }
     }
 };

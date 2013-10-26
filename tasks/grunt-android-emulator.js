@@ -229,4 +229,56 @@ module.exports = function (grunt) {
             }
         }
     });
+
+    grunt.registerTask('unlock-android-emulator', 'Unlock Android Emulator', function (id) {
+        var done = this.async(),
+            callbacks = {
+                success: function () {
+                    done(true);
+                },
+                error: function () {
+                    done(false);
+                }
+            },
+            options = {},
+            emulators = GruntModule.getOption('android.emulators');
+
+        if (!id || StringModule.trim(id) === '')
+        {
+            Logger.error(['task: unlock-android-emulator: invalid emulator id: ', id].join(''));
+            callbacks.error();
+            return;
+        }
+        else if (!emulators || emulators.length < 1)
+        {
+            Logger.error('task: unlock-android-emulator: emulator configuration is missing in Gruntfile');
+            callbacks.error();
+            return;
+        }
+        else
+        {
+            for (var index=0, emulator; index<emulators.length; index++)
+            {
+                if (emulators[index] && emulators[index].id === id)
+                {
+                    emulator = emulators[index];
+                    break;
+                }
+            }
+            
+            if (!emulator)
+            {
+                Logger.error(['task: unlock-android-emulator: emulator id: ', id, ' does not exist in Gruntfile'].join(''));
+                callbacks.error();
+                return;
+            }
+            else
+            {
+                Logger.info(['task: unlock-android-emulator: emulator with id: ', id, ' exists in Gruntfile'].join(''));
+                var port = emulator.start && emulator.start['-port'] || 5554;
+                options['-port'] = port;
+                AndroidEmulatorModule.unlock(options, callbacks);
+            }
+        }
+    });
 };

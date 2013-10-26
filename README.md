@@ -5,6 +5,7 @@
 * Create an Android emulator
 * Start an Android emulator
 * Stop an Android emulator
+* Unlock an Android emulator
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -156,6 +157,11 @@ Execute `emulator -help` in a terminal to see a list of the available options. _
 > This task stops an Android emulator. You can execute it using:
 
 `grunt stop-android-emulator:emulator-1` where `emulator-1` is a the emulator's id.
+
+## unlock-android-emulator
+> This task unlocks an Android emulator. You can execute it by using:
+
+`grunt unlock-android-emulator:emulator-1` where `emulator-1` is a the emulator's id.
 
 The plugin uses the `-port` option of the `start` options to find the emulator to stop or 5554 in case this option is not defined.
 
