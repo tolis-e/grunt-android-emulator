@@ -16,8 +16,8 @@
  */
 var grunt = require('grunt'),
     shell = require('shelljs'),
-    StringModule = require('../common/string-module').StringModule,
-    Logger = require('../common/log-module').Logger,
+    StringModule = require('../lib/string-module').StringModule,
+    Logger = require('../lib/log-module').Logger,
     path = require('path');
 
 module.exports.AndroidEmulatorModule =

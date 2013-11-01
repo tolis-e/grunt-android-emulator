@@ -17,10 +17,10 @@
 module.exports = function (grunt) {
     'use strict';
 
-    var GruntModule = require('../src/common/grunt-module').GruntModule,
-        StringModule = require('../src/common/string-module').StringModule,
-        Logger = require('../src/common/log-module').Logger,
-        AndroidEmulatorModule = require('../src/android/emulator-module').AndroidEmulatorModule,
+    var GruntModule = require('../src/lib/grunt-module').GruntModule,
+        StringModule = require('../src/lib/string-module').StringModule,
+        Logger = require('../src/lib/log-module').Logger,
+        AndroidEmulatorModule = require('../src/core/emulator-module').AndroidEmulatorModule,
         path = require('path');
 
     grunt.registerTask('create-android-emulator', 'Create Android Emulator', function (id) {
