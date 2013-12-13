@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         /*
-        android: {
+        grunt_android_emulator: {
             emulators: [{
                 id: 'emulator-1',
                 create: {
@@ -44,6 +44,15 @@ module.exports = function(grunt) {
                     //'-avd': 'testAVD'
                 }
             }],
+            apks: [{
+                id: "apk-1",
+                path: "/home/test/apks/test.apk",
+                activities: [{
+                    id: "activity-1",
+                    package: "org.jboss.aerogear",
+                    name: "AeroGearMain"
+                }]
+            }]
         },*/
         jshint: {
             all: {

@@ -6,6 +6,8 @@
 * Start an Android emulator
 * Stop an Android emulator
 * Unlock an Android emulator
+* Install an APK
+* Start an activity
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -29,7 +31,7 @@ grunt.loadNpmTasks('grunt-android-emulator');
 
 ```js
 grunt.initConfig({
-    android: {
+    grunt_android_emulator: {
         emulators: [{
             id: 'emulator-1',
             create: {
@@ -95,7 +97,7 @@ Usage: `[optional]`
 
 ```js
 grunt.initConfig({
-    android: {
+    grunt_android_emulator: {
         emulators: [{
             id: 'emulator-1',
             start: {
@@ -165,10 +167,105 @@ Execute `emulator -help` in a terminal to see a list of the available options. _
 
 The plugin uses the `-port` option of the `start` options to find the emulator to stop or 5554 in case this option is not defined.
 
+## install-apk task
+> This task installs an APK in an Android emulator. You can execute it using:
+
+`grunt install-apk:emulator-1:apk-1` where `emulator-1` is a the emulator's id and apk-1 is the APK's id as shown in the below configuration.
+
+```js
+grunt.initConfig({
+    grunt_android_emulator: {
+        emulators: [{
+            id: 'emulator-1',
+            create: {
+                '--name': 'testAVD',
+                //'--sdcard': '10M',
+                //'--snapshot': '',
+                //'--path': 'avd',
+                '--force': '',
+                //'--skin': '',
+                '--target': 'android-18',
+                '--abi': 'armeabi-v7a'
+            }
+        }],
+        apks: [{
+            id: "apk-1",
+            path: "./apk/test.apk",
+            activities: [{
+                id: "activity-1",
+                packageName: "org.jboss.aerogear",
+                name: "AeroGearMain"
+            }]
+        }]
+    }
+});
+```
+### Options
+
+#### path
+Type: `String`  
+Description: `Relative or absolute path of the APK`  
+Usage: `[required]`
+
+## start-activity task
+> This task starts an activity. You can execute it using:
+
+`grunt start-activity:emulator-1:apk-1:activity-1` where `emulator-1` is a the emulator's id, apk-1 is the APK's id and activity-1 is the activity's id as shown in the below configuration.
+
+```js
+grunt.initConfig({
+    grunt_android_emulator: {
+        emulators: [{
+            id: 'emulator-1',
+            create: {
+                '--name': 'testAVD',
+                //'--sdcard': '10M',
+                //'--snapshot': '',
+                //'--path': 'avd',
+                '--force': '',
+                //'--skin': '',
+                '--target': 'android-18',
+                '--abi': 'armeabi-v7a'
+            }
+        }],
+        apks: [{
+            id: "apk-1",
+            path: "./apks/test.apk",
+            activities: [{
+                id: "activity-1",
+                packageName: "org.jboss.aerogear",
+                name: "AeroGearMain"
+            }]
+        }]
+    }
+});
+```
+### Options
+
+#### activities[x].id
+Type: `String`  
+Description: `Identifier of the activity`  
+Usage: `[required]`
+
+#### activities[x].packageName
+Type: `String`  
+Description: `Package name`  
+Usage: `[required]`
+
+#### activities[x].name
+Type: `String`  
+Description: `Activity name`  
+Usage: `[required]`
+
 ## Example
 > The [example](https://github.com/tolis-e/grunt-android-emulator/tree/master/example) folder contains a sample example which depicts how to use this plugin.
 
 ## Release History
+
+### 0.1.1
+*Released 13 December 2013*
+
+* Add APK installation and start activity support
 
 ### 0.1.0
 *Released 20 October 2013*

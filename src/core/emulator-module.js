@@ -186,5 +186,61 @@ module.exports.AndroidEmulatorModule =
                 }
             });
         }
+    },
+    installAPK: function (options, callbacks)
+    {
+        if (options)
+        {
+            var installApkCmd = ['adb -s emulator-',
+                                        options['-port'],
+                                        ' install -r ',
+                                        options['apkPath']
+                                    ].join('');
+
+            Logger.info(['AndroidEmulatorModule: installAPK: ', installApkCmd].join(''));
+
+            var installAPK = shell.exec(installApkCmd, function (statusCode, output) {
+                if (statusCode === 0)
+                {
+                    Logger.info('AndroidEmulatorModule: installAPK: APK successfully installed');
+                    callbacks.success();
+                }
+                else
+                {
+                    Logger.error('AndroidEmulatorModule: installAPK: APK installation failed');
+                    callbacks.error();
+                }
+            });
+        }
+    },
+    startActivity: function (options, callbacks)
+    {
+        if (options)
+        {
+            var startActivityCmd = ['adb -s emulator-',
+                                        options['-port'],
+                                    ' shell am start -n ',
+                                    options['packageName'],
+                                    '/',
+                                    options['packageName'],
+                                    '.',
+                                    options['activity']
+                                ].join('');
+
+            Logger.info(['AndroidEmulatorModule: startActivity: ', startActivityCmd].join(''));
+
+            var startActivity = shell.exec(startActivityCmd, function (statusCode, output) {
+                if (statusCode === 0)
+                {
+                    Logger.info('AndroidEmulatorModule: startActivity: activity successfully started');
+                    callbacks.success();
+                }
+                else
+                {
+                    Logger.error('AndroidEmulatorModule: startActivity: activity failure');
+                    callbacks.error();
+                }
+            });
+        }
     }
 };

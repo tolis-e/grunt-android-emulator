@@ -1,8 +1,8 @@
 {
     "name": "grunt-android-emulator",
-    "description": "Create, Start, Unlock and Stop Android emulators",
+    "description": "Create, Start, Unlock, Stop Android emulators, Install APK, Start Activities",
     "title": "Grunt Android Emulator",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage": "https://github.com/tolis-e/grunt-android-emulator",
     "repository": {
         "type": "git",

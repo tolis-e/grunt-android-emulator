@@ -23,6 +23,8 @@ module.exports = function (grunt) {
         AndroidEmulatorModule = require('../src/core/emulator-module').AndroidEmulatorModule,
         path = require('path');
 
+    // TODO: improve validation and avoid repeated code inside tasks
+
     grunt.registerTask('create-android-emulator', 'Create Android Emulator', function (id) {
         var done = this.async(),
             callbacks = {
@@ -34,7 +36,7 @@ module.exports = function (grunt) {
                 }
             },
             options = {},
-            emulators = GruntModule.getOption('android.emulators');
+            emulators = GruntModule.getOption('grunt_android_emulator.emulators');
 
         if (!id || StringModule.trim(id) === '')
         {
@@ -110,7 +112,7 @@ module.exports = function (grunt) {
                 }
             },
             options = {},
-            emulators = GruntModule.getOption('android.emulators');
+            emulators = GruntModule.getOption('grunt_android_emulator.emulators');
 
         if (!id || StringModule.trim(id) === '')
         {
@@ -189,7 +191,7 @@ module.exports = function (grunt) {
                 }
             },
             options = {},
-            emulators = GruntModule.getOption('android.emulators');
+            emulators = GruntModule.getOption('grunt_android_emulator.emulators');
 
         if (!id || StringModule.trim(id) === '')
         {
@@ -241,7 +243,7 @@ module.exports = function (grunt) {
                 }
             },
             options = {},
-            emulators = GruntModule.getOption('android.emulators');
+            emulators = GruntModule.getOption('grunt_android_emulator.emulators');
 
         if (!id || StringModule.trim(id) === '')
         {
@@ -278,6 +280,194 @@ module.exports = function (grunt) {
                 var port = emulator.start && emulator.start['-port'] || 5554;
                 options['-port'] = port;
                 AndroidEmulatorModule.unlock(options, callbacks);
+            }
+        }
+    });
+
+    grunt.registerTask('install-apk', 'Install APK in Android Emulator', function (emulatorId, apkId) {
+        var done = this.async(),
+            callbacks = {
+                success: function () {
+                    done(true);
+                },
+                error: function () {
+                    done(false);
+                }
+            },
+            options = {},
+            emulators = GruntModule.getOption('grunt_android_emulator.emulators'),
+            apks = GruntModule.getOption(['grunt_android_emulator.apks'].join(''));
+
+        if (!emulatorId || StringModule.trim(emulatorId) === '')
+        {
+            Logger.error(['task: install-apk: invalid emulator id: ', emulatorId].join(''));
+            callbacks.error();
+            return;
+        }
+        else if (!emulators || emulators.length < 1)
+        {
+            Logger.error('task: install-apk: emulator configuration is missing in Gruntfile');
+            callbacks.error();
+            return;
+        }
+        else if (!apks || apks.length < 1)
+        {
+            Logger.error(['task: install-apk: apks configuration is missing in Gruntfile'].join(''));
+            callbacks.error();
+            return;
+        }
+        else
+        {
+            for (var index=0, emulator; index < emulators.length; index++)
+            {
+                if (emulators[index] && emulators[index].id === emulatorId)
+                {
+                    emulator = emulators[index];
+                    break;
+                }
+            }
+
+            for (var apkIndex=0, apk; apkIndex < apks.length; apkIndex++)
+            {
+                if (apks[apkIndex] && apks[apkIndex].id === apkId)
+                {
+                    apk = apks[apkIndex];
+                    break;
+                }
+            }
+
+            if (!apk)
+            {
+                Logger.error(['task: install-apk: apk id: ', apkId, ' does not exist in Gruntfile'].join(''));
+                callbacks.error();
+                return;
+            }
+            else if (!emulator)
+            {
+                Logger.error(['task: install-apk: emulator id: ', emulatorId, ' does not exist in Gruntfile'].join(''));
+                callbacks.error();
+                return;
+            }
+            else
+            {
+                var apkPath = apk.path ? path.resolve(apk.path) : undefined;
+                
+                if (apkPath === undefined || !grunt.file.isFile(apkPath))
+                {
+                    Logger.error(['task: install-apk: apk path: ', apkPath, ' does not exist'].join(''));
+                    callbacks.error();
+                    return;
+                }
+                else
+                {
+                    var port = emulator.start && emulator.start['-port'] || 5554;
+                    options['-port'] = port;
+                    options['apkPath'] = apkPath;
+                    AndroidEmulatorModule.installAPK(options, callbacks);
+                }
+            }
+        }
+    });
+    
+    grunt.registerTask('start-activity', 'Start an activity', function (emulatorId, apkId, activityId) {
+        var done = this.async(),
+            callbacks = {
+                success: function () {
+                    done(true);
+                },
+                error: function () {
+                    done(false);
+                }
+            },
+            options = {},
+            emulators = GruntModule.getOption('grunt_android_emulator.emulators'),
+            apks = GruntModule.getOption(['grunt_android_emulator.apks'].join(''));
+
+        if (!emulatorId || StringModule.trim(emulatorId) === '')
+        {
+            Logger.error(['task: start-activity: invalid emulator id: ', emulatorId].join(''));
+            callbacks.error();
+            return;
+        }
+        else if (!emulators || emulators.length < 1)
+        {
+            Logger.error('task: start-activity: emulator configuration is missing in Gruntfile');
+            callbacks.error();
+            return;
+        }
+        else if (!apks || apks.length < 1)
+        {
+            Logger.error(['task: start-activity: apks configuration is missing in Gruntfile'].join(''));
+            callbacks.error();
+            return;
+        }
+        else
+        {
+            for (var index=0, emulator; index < emulators.length; index++)
+            {
+                if (emulators[index] && emulators[index].id === emulatorId)
+                {
+                    emulator = emulators[index];
+                    break;
+                }
+            }
+
+            for (var apkIndex=0, apk; apkIndex < apks.length; apkIndex++)
+            {
+                if (apks[apkIndex] && apks[apkIndex].id === apkId)
+                {
+                    apk = apks[apkIndex];
+                    break;
+                }
+            }
+
+            if (!apk)
+            {
+                Logger.error(['task: start-activity: apk id: ', apkId, ' does not exist in Gruntfile'].join(''));
+                callbacks.error();
+                return;
+            }
+            else if (!emulator)
+            {
+                Logger.error(['task: start-activity: emulator id: ', emulatorId, ' does not exist in Gruntfile'].join(''));
+                callbacks.error();
+                return;
+            }
+            else
+            {
+                var activities = apk.activities;
+                if (!activities || activities.length < 1)
+                {
+                    Logger.error('task: start-activity: activities configuration is missing in Gruntfile');
+                    callbacks.error();
+                    return;
+                }
+                else
+                {
+                    for (var activityIndex=0, activity; index < activities.length; activityIndex++)
+                    {
+                        if (activities[activityIndex] && activities[activityIndex].id === activityId)
+                        {
+                            activity = activities[activityIndex];
+                            break;
+                        }
+                    }
+                
+                    if (!activity || !activity.packageName || !activity.name)
+                    {
+                        Logger.error('task: start-activity: activity package or path is not defined: ');
+                        callbacks.error();
+                        return;
+                    }
+                    else
+                    {
+                        var port = emulator.start && emulator.start['-port'] || 5554;
+                        options['-port'] = port;
+                        options['packageName'] = activity.packageName;
+                        options['activity'] = activity.name;
+                        AndroidEmulatorModule.startActivity(options, callbacks);
+                    }
+                }
             }
         }
     });

@@ -1,8 +1,8 @@
 {
     "name": "grunt-android-emulator-example",
-    "description": "Create, Start and Stop Android emulators Example",
+    "description": "Create, Start and Stop Android emulators, Install APK, Start activities Example",
     "title": "Grunt Android Emulator Example",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage": "https://github.com/tolis-e/grunt-android-emulator",
     "repository": {
         "type": "git",
@@ -31,6 +31,6 @@
     "devDependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-jshint": "~0.6.4",
-        "grunt-android-emulator": "0.1.0"
+        "grunt-android-emulator": "0.1.1"
     }
 }
