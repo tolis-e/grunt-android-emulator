@@ -3,11 +3,12 @@
 booted=""
 failures=0
 trials=0
+maxTrials=60
 until [[ "$booted" =~ "stopped" ]]; do
     let "trials += 1"
     echo "## trials: $trials"
-    if [[ $trials -gt 60 ]]; then
-        echo "Could not boot emulator $1 after 80 trials"
+    if [[ $trials -gt $maxTrials ]]; then
+        echo "Could not boot emulator $1 after $maxTrials trials"
         exit 1
     fi
     echo "adb -s emulator-$1 shell getprop init.svc.bootanim"
