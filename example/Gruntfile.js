@@ -91,5 +91,17 @@ module.exports = function(grunt) {
    
     grunt.loadNpmTasks('grunt-android-emulator');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask('default', ['jshint', 'create-android-emulator:emulator-1', 'create-android-emulator:emulator-2', 'start-android-emulator:emulator-1', 'start-android-emulator:emulator-2', 'unlock-android-emulator:emulator-1', 'unlock-android-emulator:emulator-2', 'install-apk:emulator-1:apk-1', 'install-apk:emulator-2:apk-2', 'start-activity:emulator-1:apk-1:main', 'start-activity:emulator-2:apk-2:activity-2', 'stop-android-emulator:emulator-1', 'stop-android-emulator:emulator-2']);
+    grunt.registerTask('default', ['jshint',
+                                    'create-android-emulator:emulator-1',
+                                    'create-android-emulator:emulator-2',
+                                    'start-android-emulator:emulator-1',
+                                    'start-android-emulator:emulator-2',
+                                    'unlock-android-emulator:emulator-1',
+                                    'unlock-android-emulator:emulator-2',
+                                    'install-apk:emulator-1:apk-1',
+                                    'install-apk:emulator-2:apk-2',
+                                    'start-activity:emulator-1:apk-1:main',
+                                    'start-activity:emulator-2:apk-2:activity-2',
+                                    'stop-android-emulator:emulator-1',
+                                    'stop-android-emulator:emulator-2']);
 };
