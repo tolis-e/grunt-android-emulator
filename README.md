@@ -75,6 +75,11 @@ Type: `String`
 Description: `Skin for the new AVD`  
 Usage: `[optional]`
 
+#### --device or -d
+Type: `String`  
+Description: `Device definition to use`  
+Usage: `[optional]`
+
 #### --abi or -b
 Type: `String`  
 Description: `The ABI to use for the AVD`  
@@ -263,9 +268,9 @@ Usage: `[required]`
 ## Release History
 
 ### 0.1.2
-*Released 08 September 2014
+*Released 08 September 2014*
 
- * Remove validation from create options --device option support
+* Remove validation from create options --device option support
 
 ### 0.1.1
 *Released 13 December 2013*
