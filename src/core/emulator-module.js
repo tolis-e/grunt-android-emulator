@@ -72,7 +72,7 @@ module.exports.AndroidEmulatorModule =
             for (var id in options)
             {
                 var value = StringModule.trim(options[id]);
-                if (id && (id === '--sdcard' || id === '--name' || id === '--path' || id === '--force' || id === '--skin' || id === '--target' || id === '--abi' || id === '-c' || id === '-p' || id === '-n' || id === '-a' || id === '-f' || id === '-s' || id === '-t' || id === '-b'))
+                if (id)
                 {
                     if (id === '--path' || id === '-p' || ((id === '--sdcard' || id === '-c') && !(/^[0-9]+[K|M]{1}$/.test(value))))
                     {
