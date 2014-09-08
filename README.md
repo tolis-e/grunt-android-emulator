@@ -262,6 +262,11 @@ Usage: `[required]`
 
 ## Release History
 
+### 0.1.2
+*Released 08 September 2014
+
+ * Remove validation from create options --device option support
+
 ### 0.1.1
 *Released 13 December 2013*
 
