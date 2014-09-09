@@ -85,7 +85,7 @@ module.exports.AndroidEmulatorModule =
             Logger.info(['AndroidEmulatorModule: create: ', createEmulatorCmd].join(''));
 
             var createEmulator = shell.exec(createEmulatorCmd, function (code, output) {
-                if (code === 0 && !/Error:/.test(output) && /Do you wish to create a custom hardware profile/.test(output))
+                if (code === 0 && !/Error:/.test(output) && ( /Do you wish to create a custom hardware profile/.test(output) || /Created AVD/.test(output) ))
                 {
                     Logger.info('AndroidEmulatorModule: create: emulator was successfully created');
                     callbacks.success();

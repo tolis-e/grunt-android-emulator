@@ -30,7 +30,8 @@ module.exports = function(grunt) {
                     '--force': '',
                     //'--skin': '',
                     '--target': 'android-18',
-                    '--abi': 'armeabi-v7a'
+                    '--abi': 'armeabi-v7a',
+                    '--device': "'Nexus 7 2013'"
                 },
                 start: {
                     '-port': '5556',
