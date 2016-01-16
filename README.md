@@ -267,6 +267,11 @@ Usage: `[required]`
 
 ## Release History
 
+### 0.1.5
+*Released 16 January 2016*
+
+* Update shelljs dependency NPM version
+
 ### 0.1.2
 *Released 08 September 2014*
 
