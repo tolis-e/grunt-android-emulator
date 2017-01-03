@@ -1,0 +1,17 @@
+language: android
+android:
+  components:
+    - build-tools-18.1.0
+    - android-18
+    - extra-android-support
+    - sys-img-armeabi-v7a-android-18
+env:
+  matrix:
+    - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
+before_script:
+  - npm install -g grunt-cli
+  - npm install
+  - cd example
+  - npm install
+  - npm install ../
+script: grunt

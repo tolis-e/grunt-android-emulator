@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "grunt-android-emulator@^0.1.5",
+        "scope": null,
+        "escapedName": "grunt-android-emulator",
+        "name": "grunt-android-emulator",
+        "rawSpec": "^0.1.5",
+        "spec": ">=0.1.5 <0.2.0",
+        "type": "range"
+      },
+      "/Users/Yoni/Repos/ia-jstag-complete"
+    ]
+  ],
+  "_from": "grunt-android-emulator@>=0.1.5 <0.2.0",
+  "_id": "grunt-android-emulator@0.1.5",
+  "_inCache": true,
+  "_location": "/grunt-android-emulator",
+  "_nodeVersion": "5.4.1",
+  "_npmUser": {
+    "name": "tolis-e",
+    "email": "tolisemm@gmail.com"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "grunt-android-emulator@^0.1.5",
+    "scope": null,
+    "escapedName": "grunt-android-emulator",
+    "name": "grunt-android-emulator",
+    "rawSpec": "^0.1.5",
+    "spec": ">=0.1.5 <0.2.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/grunt-android-emulator/-/grunt-android-emulator-0.1.5.tgz",
+  "_shasum": "24b79d8939f73309173cbda8b2d1eb97980058b0",
+  "_shrinkwrap": null,
+  "_spec": "grunt-android-emulator@^0.1.5",
+  "_where": "/Users/Yoni/Repos/ia-jstag-complete",
+  "author": {
+    "name": "Tolis Emmanouilidis",
+    "url": "http://github.com/tolis-e/grunt-android-emulator"
+  },
+  "bugs": {
+    "url": "https://github.com/tolis-e/grunt-android-emulator/issues"
+  },
+  "dependencies": {
+    "shelljs": "~0.5.3"
+  },
+  "description": "Create, Start, Unlock, Stop Android emulators, Install APK, Start Activities",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "24b79d8939f73309173cbda8b2d1eb97980058b0",
+    "tarball": "https://registry.npmjs.org/grunt-android-emulator/-/grunt-android-emulator-0.1.5.tgz"
+  },
+  "homepage": "https://github.com/tolis-e/grunt-android-emulator",
+  "keywords": [
+    "android",
+    "android emulator",
+    "emulator",
+    "mobile"
+  ],
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "tolis-e",
+      "email": "tolisemm@gmail.com"
+    }
+  ],
+  "name": "grunt-android-emulator",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tolis-e/grunt-android-emulator.git"
+  },
+  "scripts": {},
+  "title": "Grunt Android Emulator",
+  "version": "0.1.5"
+}
