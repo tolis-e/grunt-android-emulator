@@ -240,7 +240,7 @@ grunt.initConfig({
                 id: "activity-1",
                 packageName: "com.android.chrome/com.google.android.apps.chrome",
                 name: "Main",
-                extraParams:"-d http://10.0.2.2:9000"
+                extraParams: "-d http://10.0.2.2:9000"
             }]
         }]
     }
@@ -266,7 +266,7 @@ Usage: `[required]`
 #### activities[x].extraParams
 Type: `String`  
 Description: `Extra parameters [(see this page for more details).](https://developer.android.com/studio/command-line/adb.html#IntentSpec)`  
-Usage: `[required]`
+Usage: `[optional]`
 
 ## Example
 > The [example](https://github.com/tolis-e/grunt-android-emulator/tree/master/example) folder contains examples which depicts how to use this plugin.
