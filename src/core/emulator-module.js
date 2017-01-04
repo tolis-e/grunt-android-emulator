@@ -217,15 +217,15 @@ module.exports.AndroidEmulatorModule =
     {
         if (options)
         {
-            var startActivityCmd = ['adb -s emulator-',
-                                        options['-port'],
-                                    ' shell am start -n ',
-                                    options['packageName'],
-                                    '/',
-                                    options['packageName'],
-                                    '.',
-                                    options['activity']
-                                ].join('');
+            var startActivityCmd = [
+                'adb -s emulator-',
+                options['-port'],
+                ' shell am start -n ',
+                options['packageName'],
+                '.',
+                options['activity'],
+                `${ options['extraParams']}`
+            ].join('');
 
             Logger.info(['AndroidEmulatorModule: startActivity: ', startActivityCmd].join(''));
 
