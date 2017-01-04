@@ -265,7 +265,7 @@ Usage: `[required]`
 
 #### activities[x].extraParams
 Type: `String`  
-Description: `Extra parameters [(see this page for more details).](https://developer.android.com/studio/command-line/adb.html#IntentSpec)`  
+Description: `Extra parameters` [(see this page for more details).](https://developer.android.com/studio/command-line/adb.html#IntentSpec)  
 Usage: `[optional]`
 
 ## Example
