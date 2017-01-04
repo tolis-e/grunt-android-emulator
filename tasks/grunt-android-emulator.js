@@ -444,7 +444,7 @@ module.exports = function (grunt) {
                 }
                 else
                 {
-                    for (var activityIndex=0, activity; index < activities.length; activityIndex++)
+                    for (var activityIndex=0, activity; activityIndex < activities.length; activityIndex++)
                     {
                         if (activities[activityIndex] && activities[activityIndex].id === activityId)
                         {
