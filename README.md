@@ -235,11 +235,12 @@ grunt.initConfig({
         }],
         apks: [{
             id: "apk-1",
-            path: "./apks/test.apk",
+            path: "ignored",
             activities: [{
                 id: "activity-1",
-                packageName: "org.jboss.aerogear",
-                name: "AeroGearMain"
+                packageName: "com.android.chrome/com.google.android.apps.chrome",
+                name: "Main",
+                extraParams:"-d http://10.0.2.2:9000"
             }]
         }]
     }
@@ -262,8 +263,13 @@ Type: `String`
 Description: `Activity name`  
 Usage: `[required]`
 
+#### activities[x].extraParams
+Type: `String`  
+Description: `Extra parameters [(see this page for more details).](https://developer.android.com/studio/command-line/adb.html#IntentSpec)`  
+Usage: `[required]`
+
 ## Example
-> The [example](https://github.com/tolis-e/grunt-android-emulator/tree/master/example) folder contains a sample example which depicts how to use this plugin.
+> The [example](https://github.com/tolis-e/grunt-android-emulator/tree/master/example) folder contains examples which depicts how to use this plugin.
 
 ## Release History
 
