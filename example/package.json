@@ -3,10 +3,10 @@
     "description": "Create, Start and Stop Android emulators, Install APK, Start activities Example",
     "title": "Grunt Android Emulator Example",
     "version": "0.1.1",
-    "homepage": "https://github.com/tolis-e/grunt-android-emulator",
+    "homepage": "https://github.com/y0n1/grunt-android-emulator",
     "repository": {
         "type": "git",
-        "url": "git://github.com/tolis-e/grunt-android-emulator.git"
+        "url": "git://github.com/y0n1/grunt-android-emulator.git"
     },
     "author": {
         "name": "Tolis Emmanouilidis",
