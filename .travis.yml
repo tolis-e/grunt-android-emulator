@@ -16,4 +16,5 @@ before_script:
   - npm install
   - cd example
   - npm install
+  - cd ..
 script: grunt
