@@ -10,4 +10,4 @@ git clone https://github.com/creationix/nvm.git ~/.nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
 # Install the desired version of Node
-nvm install || (. ~/.bashrc && nvm install)
+. ~/.bashrc && nvm install && nvm use
