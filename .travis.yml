@@ -1,3 +1,5 @@
+dist: trusty
+sudo: required
 language: android
 android:
   components:
@@ -7,9 +9,9 @@ android:
     - sys-img-armeabi-v7a-android-18
 env:
   matrix:
-    - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
+    - ANDROID_SDKS="android-18" ANDROID_TARGET="android-18"
 install:
-  - ./node_install.sh
+  - sudo chmod +x ./node_install.sh && ./node_install.sh
 before_script:
   - npm install -g grunt-cli
   - npm install
