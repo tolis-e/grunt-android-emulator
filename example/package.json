@@ -31,6 +31,7 @@
     ],
     "devDependencies": {
         "grunt": "~0.4.5",
-        "grunt-contrib-jshint": "~0.10.0"
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-android-emulator": "git://github.com/y0n1/grunt-android-emulator.git"
     }
 }
