@@ -7,8 +7,8 @@ android:
     - extra-android-support
     - sys-img-armeabi-v7a-android-18
 install:
-  - sudo chmod +x ./node_install.sh
-  - ./node_install.sh
+  - nvm install
+  - nvm ls
 env:
   matrix:
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
