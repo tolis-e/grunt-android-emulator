@@ -1,4 +1,5 @@
 {
+    "private": true,
     "name": "grunt-android-emulator-example",
     "description": "Create, Start and Stop Android emulators, Install APK, Start activities Example",
     "title": "Grunt Android Emulator Example",
