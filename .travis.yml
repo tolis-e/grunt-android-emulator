@@ -9,7 +9,7 @@ android:
     - sys-img-armeabi-v7a-android-18
 env:
   matrix:
-    - ANDROID_SDKS="android-18" ANDROID_TARGET="android-18"
+    - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
 install:
   - sudo chmod +x ./node_install.sh && ./node_install.sh
 before_script:
