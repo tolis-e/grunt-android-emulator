@@ -15,4 +15,4 @@ before_script:
   - cd example
   - npm install
   - npm install ../
-script: grunt --verbose --force
+script: grunt
