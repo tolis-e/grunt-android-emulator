@@ -7,7 +7,7 @@ android:
     - sys-img-armeabi-v7a-android-18
 install:
   - nvm install
-  - nvm ls
+  - nvm current
 env:
   matrix:
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
