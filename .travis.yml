@@ -1,3 +1,4 @@
+sudo: required
 language: android
 android:
   components:
@@ -5,6 +6,9 @@ android:
     - android-18
     - extra-android-support
     - sys-img-armeabi-v7a-android-18
+install:
+  - sudo chmod +x ./node_install.sh
+  - ./node_install.sh
 env:
   matrix:
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
