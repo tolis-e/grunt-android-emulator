@@ -8,6 +8,8 @@ android:
 env:
   matrix:
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
+install:
+  - ./node_install.sh
 before_script:
   - npm install -g grunt-cli
   - npm install
