@@ -1,3 +1,4 @@
+sudo: required
 language: android
 android:
   components:
@@ -9,7 +10,7 @@ env:
   matrix:
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
 before_script:
-  - nvm use || nvm install
+  - sudo chmod +x ./setup.sh && ./setup.sh
   - npm install -g grunt-cli
   - npm install
   - cd example
