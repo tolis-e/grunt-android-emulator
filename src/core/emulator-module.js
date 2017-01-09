@@ -58,7 +58,7 @@ module.exports.AndroidEmulatorModule =
                     errors = [errors, ' sdcard: \'', sdcard, '\' '].join('');
                 }
             }
-
+            
             return errors;
         }
         return 'create: configuration is missing in Gruntfile';
@@ -68,7 +68,7 @@ module.exports.AndroidEmulatorModule =
         if (options)
         {
             var createEmulatorCmd = 'echo no | android create avd';
-
+            
             for (var id in options)
             {
                 var value = StringModule.trim(options[id]);
@@ -114,14 +114,14 @@ module.exports.AndroidEmulatorModule =
             }
 
             Logger.info(['AndroidEmulatorModule: start: ', startEmulatorCmd].join(''));
-
+            
             var startEmulator = shell.exec(startEmulatorCmd, function (statusCode, output) {
                 if (statusCode !== 0)
                 {
                     callbacks.error();
                 }
             });
-
+            
             Logger.info('AndroidEmulatorModule: start: wait to boot');
             var waitEmulatorToBootCmd = [__dirname, '/', 'wait_emulator_to_boot.sh', ' ', options['-port']].join(''),
                 waitEmulatorToBootExec = shell.exec(waitEmulatorToBootCmd, function(code, output) {
@@ -145,7 +145,7 @@ module.exports.AndroidEmulatorModule =
             var stopEmulatorCmd = ['adb -s emulator-', options['-port'], ' emu kill'].join('');
 
             Logger.info(['AndroidEmulatorModule: stop: ', stopEmulatorCmd].join(''));
-
+            
             var stopEmulator = shell.exec(stopEmulatorCmd, function (statusCode, output) {
                 if (statusCode === 0 && !/error/.test(output))
                 {
@@ -218,13 +218,13 @@ module.exports.AndroidEmulatorModule =
         if (options)
         {
             var startActivityCmd = [
-              'adb -s emulator-',
-              options['-port'],
-              ' shell am start -n ',
-              options['packageName'],
-              '.',
-              options['activity'],
-              ` ${options['intentArgs']}`
+                'adb -s emulator-',
+                options['-port'],
+                ' shell am start -n ',
+                options['packageName'],
+                '.',
+                options['activity'],
+                `${ options['extraParams']}`
             ].join('');
 
             Logger.info(['AndroidEmulatorModule: startActivity: ', startActivityCmd].join(''));

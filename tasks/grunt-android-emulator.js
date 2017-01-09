@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                     break;
                 }
             }
-
+            
             if (!emulator)
             {
                 Logger.error(['task: create-android-emulator: emulator id: ', id, ' does not exist in Gruntfile'].join(''));
@@ -136,7 +136,7 @@ module.exports = function (grunt) {
                     break;
                 }
             }
-
+            
             if (!emulator)
             {
                 Logger.error(['task: start-android-emulator: emulator id: ', id, ' does not exist in Gruntfile'].join(''));
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
                     break;
                 }
             }
-
+            
             if (!emulator)
             {
                 Logger.error(['task: stop-android-emulator: emulator id: ', id, ' does not exist in Gruntfile'].join(''));
@@ -267,7 +267,7 @@ module.exports = function (grunt) {
                     break;
                 }
             }
-
+            
             if (!emulator)
             {
                 Logger.error(['task: unlock-android-emulator: emulator id: ', id, ' does not exist in Gruntfile'].join(''));
@@ -351,7 +351,7 @@ module.exports = function (grunt) {
             else
             {
                 var apkPath = apk.path ? path.resolve(apk.path) : undefined;
-
+                
                 if (apkPath === undefined || !grunt.file.isFile(apkPath))
                 {
                     Logger.error(['task: install-apk: apk path: ', apkPath, ' does not exist'].join(''));
@@ -368,7 +368,7 @@ module.exports = function (grunt) {
             }
         }
     });
-
+    
     grunt.registerTask('start-activity', 'Start an activity', function (emulatorId, apkId, activityId) {
         var done = this.async(),
             callbacks = {
@@ -452,7 +452,7 @@ module.exports = function (grunt) {
                             break;
                         }
                     }
-
+                
                     if (!activity || !activity.packageName || !activity.name)
                     {
                         Logger.error('task: start-activity: activity package or path is not defined: ');
@@ -465,7 +465,7 @@ module.exports = function (grunt) {
                         options['-port'] = port;
                         options['packageName'] = activity.packageName;
                         options['activity'] = activity.name;
-                        options['intentArgs'] = activity.intentArgs;
+                        options['extraParams'] = activity.extraParams || '';
                         AndroidEmulatorModule.startActivity(options, callbacks);
                     }
                 }

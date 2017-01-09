@@ -1,5 +1,5 @@
 # grunt-android-emulator 
-[![Build Status](https://travis-ci.org/tolis-e/grunt-android-emulator.png?branch=0.1.0)](https://travis-ci.org/tolis-e/grunt-android-emulator) [![NPM version](https://badge.fury.io/js/grunt-android-emulator.png)](http://badge.fury.io/js/grunt-android-emulator)
+[![Build Status](https://travis-ci.org/y0n1/grunt-android-emulator.png?branch=master)](https://travis-ci.org/y0n1/grunt-android-emulator)
 > This project contains a Grunt plugin which includes tasks to:
 
 * Create an Android emulator
@@ -269,7 +269,7 @@ Description: `Extra parameters` [(see this page for more details).](https://deve
 Usage: `[optional]`
 
 ## Example
-> The [example](https://github.com/tolis-e/grunt-android-emulator/tree/master/example) folder contains a sample example which depicts how to use this plugin.
+> The [example](https://github.com/tolis-e/grunt-android-emulator/tree/master/example) folder contains examples which depicts how to use this plugin.
 
 ## Release History
 
