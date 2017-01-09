@@ -13,10 +13,10 @@
         "name": "Tolis Emmanouilidis",
         "url": "http://github.com/tolis-e/grunt-android-emulator"
     },
-    "maintainers": {
-        "name": "Tolis Emmanouilidis",
-        "email": "tolisemm@gmail.com"
-    },
+    "maintainers": [{
+        "name": "y0n1",
+        "email": "y0n1@outlook.com"
+    }],
     "licenses": [
         {
         "type": "Apache-2.0",
