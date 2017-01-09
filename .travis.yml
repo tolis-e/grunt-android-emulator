@@ -11,6 +11,7 @@ env:
     - ANDROID_SDKS=android-18 ANDROID_TARGET=android-18
 before_script:
   - sudo chmod +x ./setup.sh && ./setup.sh
+  - nvm use || nvm install
   - npm install -g grunt-cli
   - npm install
   - cd example
