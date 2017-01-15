@@ -17,7 +17,7 @@ until [[ "$booted" =~ "stopped" ]]; do
     if [[ "$booted" =~ "not found" ]]; then
         let "failures += 1"
         echo "## Not found: $failures"
-        if [[ $failures -gt 10 ]]; then
+        if [[ $failures -gt 20 ]]; then
             echo "Could not boot emulator $1"
             exit 1
         fi

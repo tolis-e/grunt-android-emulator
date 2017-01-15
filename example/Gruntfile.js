@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                     //'--path': 'avd',
                     '--force': '',
                     //'--skin': '',
-                    '--target': 'android-18',
+                    '--target': 'android-21',
                     '--abi': 'armeabi-v7a',
                     '--device': "'Nexus 7 2013'"
                 },
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                     //'--path': 'avd',
                     '--force': '',
                     //'--skin': '',
-                    '--target': 'android-18',
+                    '--target': 'android-21',
                     '--abi': 'armeabi-v7a'
                 },
                 start: {
