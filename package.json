@@ -29,7 +29,7 @@
         "mobile"
     ],
     "dependencies": {
-        "shelljs": "~0.5.3"
+        "shelljs": "~0.7.6"
     },
     "devDependencies": {
         "grunt": "~0.4.5",
