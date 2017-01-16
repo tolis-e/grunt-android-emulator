@@ -465,6 +465,7 @@ module.exports = function (grunt) {
                         options['-port'] = port;
                         options['packageName'] = activity.packageName;
                         options['activity'] = activity.name;
+                        options['extraParams'] = activity.extraParams || '';
                         AndroidEmulatorModule.startActivity(options, callbacks);
                     }
                 }

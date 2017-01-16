@@ -1,3 +1,4 @@
+sudo: required
 language: android
 jdk: oraclejdk7
 android:
@@ -12,9 +13,11 @@ env:
   matrix:
     - ANDROID_SDKS=android-21 ANDROID_TARGET=android-21
 before_script:
+  - sudo chmod +x ./setup.sh && ./setup.sh
+  - nvm use || nvm install
   - npm install -g grunt-cli
   - npm install
   - cd example
   - npm install
   - npm install ../
-script: grunt
+script: grunt --verbose
