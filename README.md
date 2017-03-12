@@ -267,6 +267,11 @@ Usage: `[required]`
 
 ## Release History
 
+### 0.1.6
+*Released 12 March 2017*
+
+* Fix bug during starting activities
+
 ### 0.1.5
 *Released 16 January 2016*
 
